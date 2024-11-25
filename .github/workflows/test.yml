@@ -22,5 +22,5 @@ jobs:
         run: swift package resolve
 
       # Step 4: Build and run tests
-      - name: Run tests
+      - name Run tests # Missing colon here introduces a syntax error
         run: xcodebuild test -scheme Bank -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest'
