@@ -1,4 +1,3 @@
-
 name: Run tests
 
 on:
@@ -11,18 +10,17 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      # Check out the repository
+      # Step 1: Check out the repository
       - uses: actions/checkout@v4
 
-      # Set up Xcode environment
+      # Step 2: Set up Xcode environment
       - name: Set up Xcode
         run: sudo xcode-select -switch /Applications/Xcode.app
 
-      # Install dependencies (if using Swift Package Manager)
+      # Step 3: Resolve dependencies (if using Swift Package Manager)
       - name: Resolve Swift Package dependencies
         run: swift package resolve
 
-      # Build and run tests
+      # Step 4: Build and run tests
       - name: Run tests
-          run: xcodebuild test -scheme Bank -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest'
-
+        run: xcodebuild test -scheme Bank -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest'
